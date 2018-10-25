@@ -3,7 +3,7 @@ import UsernameForm from './components/UsernameForm'
 import ChatScreen from './ChatScreen'
 import Chatkit from '@pusher/chatkit'
 
-const CHATKIT_INSTANCE_ID = 'CHATKIT_INSTANCE_ID';
+const CHATKIT_INSTANCE_LOCATOR = 'CHATKIT_INSTANCE_LOCATOR';
 const SERVER_URL = 'SERVER_URL';
 
 class App extends Component {
@@ -18,13 +18,10 @@ class App extends Component {
 
   onUsernameSubmitted(username, password) {
     const chatManager = new Chatkit.ChatManager({
-      instanceLocator: CHATKIT_INSTANCE_ID,
+      instanceLocator: CHATKIT_INSTANCE_LOCATOR,
       userId: username,
       tokenProvider: new Chatkit.TokenProvider({
-        url: SERVER_URL,
-        queryParams: {
-          passw: password,
-        },
+        url: SERVER_URL
       }),
     })
     chatManager

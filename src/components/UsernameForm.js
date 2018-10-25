@@ -4,25 +4,19 @@ class UsernameForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      username: '',
-      password: '',
+      username: ''
     }
     this.onSubmit = this.onSubmit.bind(this)
     this.onChangeUsername = this.onChangeUsername.bind(this)
-    this.onChangePassword = this.onChangePassword.bind(this)
   }
 
   onSubmit(e) {
     e.preventDefault()
-    this.props.onSubmit(this.state.username, this.state.password)
+    this.props.onSubmit(this.state.username)
   }
 
   onChangeUsername(e) {
     this.setState({ username: e.target.value })
-  }
-
-  onChangePassword(e) {
-    this.setState({ password: e.target.value })
   }
 
   render() {
