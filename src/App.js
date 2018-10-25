@@ -21,7 +21,7 @@ class App extends Component {
       instanceLocator: CHATKIT_INSTANCE_LOCATOR,
       userId: username,
       tokenProvider: new Chatkit.TokenProvider({
-        url: SERVER_URL
+        url: `${SERVER_URL}/authenticate`
       }),
     })
     chatManager
