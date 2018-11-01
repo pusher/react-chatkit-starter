@@ -4,7 +4,7 @@ import SendMessageForm from './components/SendMessageForm'
 import TypingIndicator from './components/TypingIndicator'
 import WhosOnlineList from './components/WhosOnlineList'
 
-const CHATKIT_ROOM_ID = YOUR_CHATKIT_ROOM_ID;
+const CHATKIT_ROOM_ID = "YOUR_CHATKIT_ROOM_ID";
 
 class ChatScreen extends Component {
   constructor(props) {
@@ -37,7 +37,7 @@ class ChatScreen extends Component {
       roomId: CHATKIT_ROOM_ID,
       messageLimit: 100,
       hooks: {
-        onNewMessage: message => {
+        onMessage: message => {
           this.setState({
             messages: [...this.state.messages, message],
           })
@@ -54,8 +54,7 @@ class ChatScreen extends Component {
             ),
           })
         },
-        onUserCameOnline: () => this.forceUpdate(),
-        onUserWentOffline: () => this.forceUpdate(),
+        onPresenceChanged: () => this.forceUpdate(),
         onUserJoined: () => this.forceUpdate(),
       },
     })
